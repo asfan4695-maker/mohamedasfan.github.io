@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Asfan | CST Student Portfolio</title>
+  
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif), Inter (Clean Sans), JetBrains Mono (Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CSS VARIABLES (Rich Minimalist Design Tokens)
+       Obsidian backgrounds + Warm Alabaster text + Champagne Gold accents
+       ========================================================================== */
+    :root {
+      --bg-primary: #0c0c0e;        /* Deep obsidian background */
+      --bg-secondary: #111114;      /* Subtle elevated section tone */
+      --bg-card: #141418;           /* Matte charcoal card surface */
+      --bg-card-hover: #1a1a20;     /* Subtle lift on hover */
+      
+      --text-primary: #f4f1ea;      /* Warm alabaster / ivory */
+      --text-secondary: #8e8d8a;    /* Muted stone gray */
+      --text-muted: #5c5b59;        /* Subtle metadata tone */
+      
+      --accent-primary: #c8a96e;    /* Refined warm champagne gold */
+      --accent-secondary: #e2c792;  /* Soft brushed gold highlight */
+      --accent-glow: rgba(200, 169, 110, 0.10);
+      
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(200, 169, 110, 0.45);
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --max-width: 1060px;
+    }
+
+    /* ==========================================================================
+       2. RESET & BASE STYLES
+       ========================================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.75rem;
+    }
+
+    section {
+      padding: 6.5rem 0;
+    }
+
+    /* Editorial Section Headings */
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 4.5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      color: var(--text-primary);
+    }
+
+    /* ==========================================================================
+       3. STICKY NAVIGATION BAR & MOBILE MENU
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12, 12, 14, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .logo span {
+      color: var(--accent-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.45rem 0.65rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 8rem 0 7rem;
+      position: relative;
+      background: radial-gradient(circle at 80% 20%, var(--accent-glow), transparent 50%);
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--accent-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-primary);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5.5vw, 4.1rem);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .gold-italic {
+      font-style: italic;
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      max-width: 610px;
+      margin-bottom: 2.75rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+    }
+
+    /* Minimalist Luxury Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.85rem;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent-primary);
+      color: #0c0c0e;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(200, 169, 110, 0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      background: var(--bg-card);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       5. ABOUT / PHILOSOPHY SECTION
+       ========================================================================== */
+    .about {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1.35rem;
+      font-size: 1.02rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+      margin-top: 2rem;
+    }
+
+    .highlight-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.35rem;
+      border-radius: var(--radius-md);
+    }
+
+    .highlight-box h4 {
+      font-family: var(--font-serif);
+      color: var(--accent-primary);
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .highlight-box p {
+      font-size: 0.84rem;
+      margin: 0;
+      color: var(--text-secondary);
+    }
+
+    /* Minimalist Terminal Card */
+    .terminal-card {
+      background: #09090b;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      background: #131317;
+      padding: 0.85rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--text-muted);
+    }
+    .dot-gold { background: var(--accent-primary); }
+
+    .terminal-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: 0.5rem;
+    }
+
+    .terminal-body {
+      padding: 1.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+
+    .code-key { color: var(--accent-primary); }
+    .code-str { color: var(--text-primary); }
+    .code-comment { color: var(--text-muted); }
+
+    /* ==========================================================================
+       6. CURRENT BUILDS & SEMESTER 1 PROJECTS
+       ========================================================================== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent-glow);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.85rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .project-card.hidden {
+      display: none;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-number {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent-primary);
+      letter-spacing: 0.08em;
+    }
+
+    .project-status {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+
+    .project-status.live {
+      border-color: rgba(200, 169, 110, 0.4);
+      color: var(--accent-primary);
+      background: var(--accent-glow);
+    }
+
+    .project-title {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .project-desc {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      font-weight: 300;
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .project-footer {
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-small {
+      padding: 0.65rem 1.1rem;
+      font-size: 0.84rem;
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       7. SKILLS & FOUNDATIONS SECTION
+       ========================================================================== */
+    .skills {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: var(--transition);
+    }
+
+    .skill-category:hover {
+      border-color: var(--border-hover);
+    }
+
+    .skill-category h3 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .skill-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .skill-pill {
+      font-family: var(--font-mono);
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 0.95rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+
+    .skill-pill:hover {
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       8. CONTACT SECTION & FORM
+       ========================================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .social-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      font-size: 0.92rem;
+    }
+
+    .social-item:hover {
+      border-color: var(--accent-primary);
+      transform: translateX(4px);
+    }
+
+    .social-label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2.25rem;
+      border-radius: var(--radius-lg);
+    }
+
+    .form-group {
+      margin-bottom: 1.35rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-feedback {
+      margin-top: 1.15rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-sm);
+      background: var(--accent-glow);
+      border: 1px solid var(--border-hover);
+      color: var(--accent-secondary);
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    .form-feedback.show {
+      display: block;
+    }
+
+    /* ==========================================================================
+       9. PROJECT ARCHITECTURE MODAL
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 7, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg);
+      max-width: 560px;
+      width: 100%;
+      padding: 2.25rem;
+      position: relative;
+      transform: translateY(15px);
+      transition: var(--transition);
+    }
+
+    .modal-backdrop.open .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.35rem;
+      right: 1.35rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .modal-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      margin-bottom: 0.85rem;
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 1.35rem;
+      font-size: 0.96rem;
+      line-height: 1.75;
+    }
+
+    .modal-learnings {
+      background: var(--bg-primary);
+      border-left: 2px solid var(--accent-primary);
+      padding: 1rem 1.15rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .modal-learnings strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       10. FOOTER & RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    footer {
+      text-align: center;
+      padding: 2.75rem 1.5rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 850px) {
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 1.75rem;
+        gap: 1.35rem;
+        border-bottom: 1px solid var(--border-color);
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      section {
+        padding: 4.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== STICKY NAVIGATION ==================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo"><span>&lt;</span>MOHAMED.ASFAN<span>/&gt;</span></a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">Philosophy</a></li>
+          <li><a href="#projects">Builds</a></li>
+          <li><a href="#skills">Foundations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            B.Sc. Computer Science &amp; Technology &bull; Semester 1
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I’m <span class="gold-italic">Mohamed Asfan</span> — a 1st-Semester CST Student building foundational software, step by step.
+          </h1>
+          
+          <p class="hero-bio">
+            Starting from zero with a clear focus: master core computing principles by writing real code. 
+            Documenting my projects, problem-solving process, and engineering growth from day one.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Roadmap &amp; Builds</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT / PHILOSOPHY SECTION ==================== -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">01 / Philosophy</span>
+          <h2 class="section-title">Starting from zero, focused on fundamentals.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I am currently in my first semester of Computer Science and Technology. Rather than 
+              passively watching hours of tutorials without writing a single line of code, I believe 
+              the fastest way to become a capable engineer is to build real software early.
+            </p>
+            <p>
+              Every project on this page represents a deliberate step forward—learning how browsers render 
+              interfaces, how algorithms structure data, and how clean logic solves everyday problems.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-box">
+                <h4>Sem 01</h4>
+                <p>Computer Science &amp; Technology Undergraduate</p>
+              </div>
+              <div class="highlight-box">
+                <h4>0 &rarr; 1</h4>
+                <p>Hands-on execution over passive theory</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimalist System Spec Card -->
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <span class="dot dot-gold"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="terminal-title">asfan.config.json</span>
+            </div>
+            <div class="terminal-body">
+              <span class="code-comment">// Current Academic &amp; Engineering State</span><br>
+              {<br>
+              &nbsp;&nbsp;<span class="code-key">"student"</span>: <span class="code-str">"Mohamed Asfan"</span>,<br>
+              &nbsp;&nbsp;<span class="code-key">"degree"</span>: <span class="code-str">"Computer Science &amp; Tech"</span>,<br>
+              &nbsp;&nbsp;<span class="code-key">"semester"</span>: <span class="code-str">1</span>,<br>
+              &nbsp;&nbsp;<span class="code-key">"approach"</span>: <span class="code-str">"First-Principles &amp; Real Builds"</span>,<br>
+              &nbsp;&nbsp;<span class="code-key">"activeBuild"</span>: <span class="code-str">"Minimalist Personal Portfolio"</span><br>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CURRENT BUILDS & SEMESTER 1 PROJECTS ==================== -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">02 / Engineering Log</span>
+          <h2 class="section-title">Current Builds &amp; Semester 1 Projects</h2>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="filter-bar" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all">All Builds</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="core-cs">Core CS</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Minimalist Personal Portfolio -->
+          <article class="project-card" data-category="web">
+            <div>
+              <div class="project-top">
+                <span class="project-number">BUILD 01</span>
+                <span class="project-status live">Live / In Progress</span>
+              </div>
+              <h3 class="project-title">Minimalist Personal Portfolio</h3>
+              <p class="project-desc">
+                My first real software artifact—a minimalist, responsive portfolio engineered from scratch without heavy frameworks to master layout architecture and DOM events.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Semantic HTML</span>
+                <span class="tag">Modern CSS</span>
+                <span class="tag">Vanilla JS</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-secondary btn-small open-modal-btn" data-project="portfolio">
+                Inspect Build &amp; Architecture
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 2: Semester GPA & Grade Engine -->
+          <article class="project-card" data-category="core-cs">
+            <div>
+              <div class="project-top">
+                <span class="project-number">BUILD 02</span>
+                <span class="project-status">Semester 1 Lab</span>
+              </div>
+              <h3 class="project-title">Semester GPA &amp; Grade Engine</h3>
+              <p class="project-desc">
+                A calculation engine that parses course credits, validates user inputs, and computes weighted semester GPAs using clean, modular functions.
+              </p>
+              <div class="project-tags">
+                <span class="tag">JavaScript / C</span>
+                <span class="tag">Control Flow</span>
+                <span class="tag">Data Structures</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-secondary btn-small open-modal-btn" data-project="gpa">
+                Inspect Build &amp; Architecture
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 3: Sorting Algorithm Visualizer -->
+          <article class="project-card" data-category="core-cs web">
+            <div>
+              <div class="project-top">
+                <span class="project-number">BUILD 03</span>
+                <span class="project-status">Up Next</span>
+              </div>
+              <h3 class="project-title">Sorting Algorithm Visualizer</h3>
+              <p class="project-desc">
+                A visual sandbox demonstrating how Bubble Sort, Selection Sort, and Insertion Sort compare and swap elements step-by-step in real time.
+              </p>
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">Algorithms</span>
+                <span class="tag">Time Complexity</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-secondary btn-small open-modal-btn" data-project="visualizer">
+                Inspect Build &amp; Architecture
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS & FOUNDATIONS SECTION ==================== -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">03 / Foundations</span>
+          <h2 class="section-title">Skills &amp; Semester 1 Focus</h2>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1: Currently Building With -->
+          <div class="skill-category">
+            <h3>Currently Building With</h3>
+            <p class="skill-subtitle">Core languages and developer tools I use daily in my coursework and personal builds.</p>
+            <div class="skill-list">
+              <span class="skill-pill">HTML5</span>
+              <span class="skill-pill">CSS3</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">Python / C</span>
+              <span class="skill-pill">Git &amp; GitHub</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Semester 1 Focus -->
+          <div class="skill-category">
+            <h3>Semester 1 Focus</h3>
+            <p class="skill-subtitle">Foundational computer science concepts I am actively practicing and applying.</p>
+            <div class="skill-list">
+              <span class="skill-pill">Computational Thinking</span>
+              <span class="skill-pill">Data Structures Basics</span>
+              <span class="skill-pill">Responsive UI</span>
+              <span class="skill-pill">Problem Decomposition</span>
+              <span class="skill-pill">Clean Code Habits</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">04 / Connect</span>
+          <h2 class="section-title">Initiate a Conversation</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p>
+              Whether you are a fellow CS student looking to collaborate on a Semester 1 build, 
+              or a developer willing to share feedback on my code, feel free to reach out.
+            </p>
+
+            <div class="social-links">
+              <a href="https://github.com/mohamedasfan" target="_blank" rel="noopener noreferrer" class="social-item">
+                <span>GitHub Profile</span>
+                <span class="social-label">@mohamedasfan &nearr;</span>
+              </a>
+              <a href="https://linkedin.com/in/mohamedasfan" target="_blank" rel="noopener noreferrer" class="social-item">
+                <span>LinkedIn Network</span>
+                <span class="social-label">/in/mohamedasfan &nearr;</span>
+              </a>
+              <a href="mailto:mohamed.asfan@cst.dev" class="social-item">
+                <span>Direct Email</span>
+                <span class="social-label">mohamed.asfan@cst.dev &nearr;</span>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Enter your name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="you@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" placeholder="Hi Asfan, let's connect on..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+
+            <div class="form-feedback" id="formFeedback">
+              Message received. Thank you for connecting with Mohamed Asfan!
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 MOHAMED ASFAN &bull; ENGINEERED FROM SCRATCH &bull; SEMESTER 1 CST PORTFOLIO</p>
+    </div>
+  </footer>
+
+  <!-- ==================== PROJECT ARCHITECTURE MODAL ==================== -->
+  <div class="modal-backdrop" id="projectModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
+      <span class="modal-tag" id="modalTag">BUILD SPECIFICATION</span>
+      <h3 class="modal-title" id="modalTitle">Project Title</h3>
+      <p class="modal-body" id="modalDesc">Project description goes here.</p>
+      <div class="modal-learnings" id="modalLearnings">
+        <strong>Core CS Concept:</strong> Key takeaway goes here.
+      </div>
+      <div>
+        <button class="btn btn-primary btn-small" id="modalCloseBtn">Close Overview</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT INTERACTIVITY ==================== -->
+  <script>
+    // 1. Mobile Navigation Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // 2. Interactive Project Filtering (Supports single or multiple space-separated categories)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const selectedFilter = button.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const categories = card.getAttribute('data-category').split(' ');
+          if (selectedFilter === 'all' || categories.includes(selectedFilter)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 3. Project Architecture Modal Data & Logic
+    const projectDetails = {
+      portfolio: {
+        tag: "BUILD 01 // WEB ARCHITECTURE",
+        title: "Minimalist Personal Portfolio",
+        desc: "Engineered a responsive dark-mode portfolio using pure semantic HTML, CSS custom properties (design tokens), and vanilla JavaScript—without relying on external UI libraries.",
+        learning: "Learned how CSS Grid and Flexbox create fluid layouts, how CSS variables centralize theming, and how JavaScript event listeners power modals and dynamic filtering."
+      },
+      gpa: {
+        tag: "BUILD 02 // CORE CS & LOGIC",
+        title: "Semester GPA & Grade Engine",
+        desc: "A structured program that accepts course names, credit hours, and letter grades, validates edge cases, and calculates cumulative semester GPA accurately.",
+        learning: "Practiced arrays/lists, lookup objects, input validation loops, and breaking a real-world academic formula into clean, testable functions."
+      },
+      visualizer: {
+        tag: "BUILD 03 // ALGORITHMS",
+        title: "Sorting Algorithm Visualizer",
+        desc: "An upcoming browser-based tool that renders an array of bars and animates each comparison and swap performed by foundational sorting algorithms.",
+        learning: "Designed to build intuition around Big-O time complexity, asynchronous JavaScript delays (async/await), and step-by-step state updates."
+      }
+    };
+
+    const modal = document.getElementById('projectModal');
+    const modalTag = document.getElementById('modalTag');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalLearnings = document.getElementById('modalLearnings');
+    const closeModal = document.getElementById('closeModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    document.querySelectorAll('.open-modal-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-project');
+        const info = projectDetails[key];
+        if (info) {
+          modalTag.textContent = info.tag;
+          modalTitle.textContent = info.title;
+          modalDesc.textContent = info.desc;
+          modalLearnings.innerHTML = `<strong>What It Teaches:</strong> ${info.learning}`;
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden', 'false');
+        }
+      });
+    });
+
+    function hideModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    closeModal.addEventListener('click', hideModal);
+    modalCloseBtn.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) hideModal();
+    });
+
+    // 4. Interactive Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const senderName = document.getElementById('name').value.trim();
+
+      formFeedback.textContent = `Thank you, ${senderName}. Your message has been received.`;
+      formFeedback.classList.add('show');
+      contactForm.reset();
+
+      setTimeout(() => {
+        formFeedback.classList.remove('show');
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
